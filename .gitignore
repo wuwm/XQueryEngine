@@ -4,3 +4,7 @@ src/xpath/autogenerate/XPathLexer.java
 src/xpath/autogenerate/XPathLexer.tokens
 src/xpath/autogenerate/XPathParser.java
 src/xpath/autogenerate/XPathVisitor.java
+*.class
+out/production/XQueryEngine/xpath/autogenerate/XPath.tokens
+out/production/XQueryEngine/xpath/autogenerate/XPathLexer.tokens
+out.xml
