@@ -64,9 +64,11 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitFilter_rp(XPathParser.Filter_rpContext ctx) {
+
         assert this.visit(ctx.f()).size() == 1;
         assert this.visit(ctx.f()).get(0) instanceof Boolean;
         LinkedList<Node> res = new LinkedList<>();
+        this.visit(ctx.rp());
         LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
         for (Node n : curNodes_bak){
             LinkedList<Node> curNodes_new = new LinkedList<>();
@@ -170,20 +172,22 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 //        this.curNodes = res;
 //        return res;
         LinkedList<Boolean> res = new LinkedList<>();
-
+        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
         if(this.visit(ctx.rp()).size() > 0){
             res.add(Boolean.TRUE);
         }else{
             res.add(Boolean.FALSE);
         }
-
+        this.curNodes = curNodes_bak;
         return res;
     }
 
     @Override
     public LinkedList visitAnd_fs(XPathParser.And_fsContext ctx) {
+        LinkedList<Node> curNode_bak = new LinkedList<>(this.curNodes);
         Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.f(0))).get(0);
         // TODO: 1/27/18 这里要加assert
+        this.curNodes = curNode_bak;
         Boolean right_res = ((LinkedList<Boolean>)this.visit(ctx.f(1))).get(0);
         LinkedList<Boolean> res = new LinkedList<>();
         res.add(left_res && right_res);
@@ -201,8 +205,10 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitOr_fs(XPathParser.Or_fsContext ctx) {
+        LinkedList<Node> curNode_bak = new LinkedList<>(this.curNodes);
         Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.f(0))).get(0);
         // TODO: 1/27/18 这里要加assert
+        this.curNodes = curNode_bak;
         Boolean right_res = ((LinkedList<Boolean>)this.visit(ctx.f(1))).get(0);
         LinkedList<Boolean> res = new LinkedList<>();
         res.add(left_res || right_res);
@@ -216,12 +222,14 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitRps_veq_f(XPathParser.Rps_veq_fContext ctx) {
+        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
         LinkedList<Node> left_res = (LinkedList<Node>)this.visit(ctx.rp(0));
+        this.curNodes = curNodes_bak;
         LinkedList<Node> right_res = (LinkedList<Node>)this.visit(ctx.rp(1));
+        this.curNodes = curNodes_bak;
         LinkedList<Boolean> res = new LinkedList<>();
         Boolean flag = false;
         for(Node n1 : left_res){
-            flag = false;
             for(Node n2 : right_res){
                 if(n1.isEqualNode(n2)){
                     flag = true;
@@ -235,12 +243,14 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitRps_ieq_f(XPathParser.Rps_ieq_fContext ctx) {
+        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
         LinkedList<Node> left_res = (LinkedList<Node>)this.visit(ctx.rp(0));
+        this.curNodes = curNodes_bak;
         LinkedList<Node> right_res = (LinkedList<Node>)this.visit(ctx.rp(1));
+        this.curNodes = curNodes_bak;
         LinkedList<Boolean> res = new LinkedList<>();
         Boolean flag = false;
         for(Node n1 : left_res){
-            flag = false;
             for(Node n2 : right_res){
                 if(n1 == n2){
                     // TODO: 1/28/18 这里直接用==的方法不知道对不对

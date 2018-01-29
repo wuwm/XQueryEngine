@@ -1,1 +1,1 @@
-doc("j_caesar.xml")//FM//P//../../*/*/*//*/*/text()/*
+doc("j_caesar.xml")//ACT[(./TITLE)==(./TITLE)]/*/SPEECH/../TITLE

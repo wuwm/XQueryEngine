@@ -33,8 +33,8 @@ f : rp                         #rp_f
 tagName:  ID;
 attName:  ID;
 
-VEQ: '=';
-IEQ: '==';
+VEQ: '=' | 'eq';
+IEQ: '==' | 'is';
 ID: [a-zA-Z0-9]+ ;
 
 filename: FILENAME;
