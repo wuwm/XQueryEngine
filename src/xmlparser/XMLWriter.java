@@ -33,28 +33,44 @@ public class XMLWriter {
         this.document.appendChild(root);
 
 
-        if (res != null && res.get(0) instanceof String) {
+        if (res != null && res.size() != 0 && res.get(0) instanceof String) {
             LinkedList<String> res2 = (LinkedList<String>) res;
             for (String s : res2) {
                 System.out.println(s);
             }
-        } else if (res != null && res.get(0) instanceof Node) {
+        } else if (res != null && res.size() != 0 && res.get(0) instanceof Node) {
             LinkedList<Node> list = (LinkedList<Node>) res;
-            try {
-                for (int i = 0; i < list.size(); i++) {
-                    Node cur = list.get(i);
-                    Node newChild = cur.cloneNode(true);
-                    root.appendChild(this.document.importNode(cur, true));
+            if(list.get(0).getNodeType() == Node.TEXT_NODE){
+                for (Node n : list) {
+                    System.out.println(n.getNodeValue());
                 }
+            }else{
+                try {
+                    for (int i = 0; i < list.size(); i++) {
+                        Node cur = list.get(i);
+                        Node newChild = cur.cloneNode(true);
+                        root.appendChild(this.document.importNode(cur, true));
+                    }
 
+                    TransformerFactory factory2 = TransformerFactory.newInstance();
+                    Transformer former = factory2.newTransformer();
+                    former.setOutputProperty(OutputKeys.INDENT, "yes");
+                    former.transform(new DOMSource(this.document), new StreamResult(new File("out.xml")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+        } else if(res.size() == 0) {
+            try {
                 TransformerFactory factory2 = TransformerFactory.newInstance();
                 Transformer former = factory2.newTransformer();
                 former.setOutputProperty(OutputKeys.INDENT, "yes");
                 former.transform(new DOMSource(this.document), new StreamResult(new File("out.xml")));
-            } catch (Exception e) {
+            } catch (Exception e){
                 e.printStackTrace();
             }
-        } else {
+        }else {
             System.out.println("Error! Filter cannot be the output.");
         }
 
