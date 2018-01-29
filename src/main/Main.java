@@ -22,8 +22,8 @@ public class Main {
     public static void main(String[] args){
         CharStream input = null;
         try {
-//            input = CharStreams.fromFileName(" ");
-            input = CharStreams.fromString("doc(\"j_caesar.xml\")//(ACT,PERSONAE)/TITLE");//, 1);
+            input = CharStreams.fromFileName("input.txt");
+//            input = CharStreams.fromString("doc(\"j_caesar.xml\")/PLAY");//, 1);
         }catch (Exception e){
             e.printStackTrace();
         }

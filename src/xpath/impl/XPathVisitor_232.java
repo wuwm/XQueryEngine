@@ -13,10 +13,13 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitSingle_ap(XPathParser.Single_apContext ctx) {
+        XPathTool xpathTool = XPathTool.getInstance();
+        LinkedList<Node> res = new LinkedList<>();
         XMLParser xml = new XMLParser(ctx.filename().getText());
         this.curNodes.add(xml.getDoc());
-        this.curNodes.addAll(this.visit(ctx.rp()));
-        return this.visit(ctx.rp());
+        res = this.visit(ctx.rp());
+        this.curNodes = new LinkedList<>(res);
+        return res;
     }
 
     @Override
@@ -25,7 +28,9 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
         XMLParser xml = new XMLParser(ctx.filename().getText());
         curNodes.add(xml.getDoc());
         curNodes.addAll(xpathTool.findAllChildren(curNodes));
-        return this.visit(ctx.rp());
+        LinkedList<Node> res = new LinkedList<>(this.visit(ctx.rp()));
+        this.curNodes = res;
+        return res;
     }
 
     @Override
@@ -44,6 +49,17 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
         LinkedList<Node> res = new LinkedList<>(res_temp);
         this.curNodes = res;
         return res;
+    }
+
+    @Override
+    public LinkedList visitDouble_prs(XPathParser.Double_prsContext ctx) {
+        XPathTool xpathTool = XPathTool.getInstance();
+        // TODO: 1/27/18 这里是=还是addall，有点不确定
+        this.visit(ctx.rp(0));
+        this.curNodes.addAll(xpathTool.findAllChildren(curNodes));
+        this.curNodes = new LinkedList<Node>(this.visit(ctx.rp(1)));
+        return this.curNodes;
+        // TODO: 1/27/18 按照要求这里需要进行unique(）操作，实际上我没做
     }
 
     @Override
@@ -68,16 +84,7 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
         return res;
     }
 
-    @Override
-    public LinkedList visitDouble_prs(XPathParser.Double_prsContext ctx) {
-        XPathTool xpathTool = XPathTool.getInstance();
-        // TODO: 1/27/18 这里是=还是addall，有点不确定
-        this.visit(ctx.rp(0));
-        this.curNodes = xpathTool.findAllChildren(curNodes);
-        this.curNodes = this.visit(ctx.rp(1));
-        return this.curNodes;
-        // TODO: 1/27/18 按照要求这里需要进行unique(）操作，实际上我没做
-    }
+
 
     @Override
     public LinkedList visitParent_rp(XPathParser.Parent_rpContext ctx) {
@@ -100,7 +107,8 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
     public LinkedList visitTagname_rp(XPathParser.Tagname_rpContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
         String tagNametoFind = ctx.getText();
-        LinkedList<Node> res = xpathTool.findNodesByTagName(curNodes, tagNametoFind);
+        LinkedList<Node> res = xpathTool.findNextNodesByTagName(curNodes, tagNametoFind);
+        //Already make sure the nodes are ELEMENT type
         this.curNodes = res;
         return curNodes;
     }
@@ -109,20 +117,23 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
     public LinkedList visitChild_rp(XPathParser.Child_rpContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
         this.curNodes = xpathTool.findNextChildren(curNodes);
+        //Already make sure the nodes are ELEMENT type
         return this.curNodes;
     }
 
     @Override
     public LinkedList visitValue_rp(XPathParser.Value_rpContext ctx) {
-        LinkedList<String> res = new LinkedList<>();
+        LinkedList<Node> res = new LinkedList<>();
         // TODO: 1/27/18 这里进行了类型转换，返回的不再是一个Node的List，而是一个String的List
         LinkedList<Node> nextChildren = new LinkedList<>();
         XPathTool xpathTool = XPathTool.getInstance();
-        nextChildren = xpathTool.findNextChildren(curNodes);
+        nextChildren = xpathTool.findNextChildrenWithTextElement(curNodes);
         for (Node n : nextChildren){
             if(n.getNodeType() == Node.TEXT_NODE){
                 // TODO: 1/27/18 有没有其它不需要输出的情况？
-                res.add(n.getNodeValue());
+                res.add(n);
+            }else{
+                // TODO: 1/28/18 这里需要报错
             }
         }
         return res;
@@ -130,7 +141,7 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitComma_rps(XPathParser.Comma_rpsContext ctx) {
-        LinkedList<Node> curNode_bak = (LinkedList<Node>) this.curNodes.clone();
+        LinkedList<Node> curNode_bak = new LinkedList<Node>(this.curNodes);
         LinkedHashSet<Node> res_NODUP = new LinkedHashSet<>();
         LinkedList<Node> res = new LinkedList<>();
         LinkedList<Node> left_res = this.visit(ctx.rp(0));
