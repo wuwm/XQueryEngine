@@ -40,8 +40,10 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
     @Override
     public LinkedList visitSingle_prs(XPathParser.Single_prsContext ctx) {
         this.visit(ctx.rp(0));
-        return this.visit(ctx.rp(1));
-        // TODO: 1/27/18 按照要求这里需要进行unique(）操作，实际上我没做
+        LinkedHashSet<Node> res_temp = new LinkedHashSet<>(this.visit(ctx.rp(1)));
+        LinkedList<Node> res = new LinkedList<>(res_temp);
+        this.curNodes = res;
+        return res;
     }
 
     @Override
@@ -69,10 +71,11 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
     @Override
     public LinkedList visitDouble_prs(XPathParser.Double_prsContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
+        // TODO: 1/27/18 这里是=还是addall，有点不确定
         this.visit(ctx.rp(0));
         this.curNodes = xpathTool.findAllChildren(curNodes);
-        // TODO: 1/27/18 这里是=还是addall，有点不确定 
-        return this.visit(ctx.rp(1));
+        this.curNodes = this.visit(ctx.rp(1));
+        return this.curNodes;
         // TODO: 1/27/18 按照要求这里需要进行unique(）操作，实际上我没做
     }
 
