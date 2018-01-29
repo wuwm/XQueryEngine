@@ -6,6 +6,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import xmlparser.XMLWriter;
 import xpath.autogenerate.XPathLexer;
 import xpath.autogenerate.XPathParser;
+import xpath.error.ErrorListener;
 import xpath.impl.XPathVisitor_232;
 
 import java.util.LinkedList;
@@ -22,6 +23,8 @@ public class Main {
 
         XPathLexer lexer = new XPathLexer(input);
         XPathParser parser = new XPathParser(new CommonTokenStream(lexer));
+        parser.removeErrorListeners();
+        parser.addErrorListener(new ErrorListener());
         XPathVisitor_232 visitor = new XPathVisitor_232();
 
         LinkedList res = visitor.visit(parser.ap());
