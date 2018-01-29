@@ -8,3 +8,4 @@ src/xpath/autogenerate/XPathVisitor.java
 out/production/XQueryEngine/xpath/autogenerate/XPath.tokens
 out/production/XQueryEngine/xpath/autogenerate/XPathLexer.tokens
 out.xml
+gen/xpath/autogenerate
