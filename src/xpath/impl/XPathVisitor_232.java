@@ -1,8 +1,9 @@
 package xpath.impl;
+
 import org.w3c.dom.Node;
+import xmlparser.XMLParser;
 import xpath.autogenerate.XPathBaseVisitor;
 import xpath.autogenerate.XPathParser;
-import xmlparser.XMLParser;
 
 import java.util.LinkedHashSet;
 import java.util.LinkedList;

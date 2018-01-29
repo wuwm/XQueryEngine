@@ -1,9 +1,9 @@
-package test.xpath.impl; 
+package test.xpath.impl;
 
 
-import org.junit.Test;
-import org.junit.Before; 
 import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
