@@ -1,5 +1,7 @@
 package xpath.impl;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import xmlparser.XMLParser;
 import xpath.autogenerate.XPathBaseVisitor;
@@ -11,13 +13,14 @@ import java.util.LinkedList;
 public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     private LinkedList<Node> curNodes = new LinkedList<>();
-
+    private Document docc = null;
     @Override
     public LinkedList visitSingle_ap(XPathParser.Single_apContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
         LinkedList<Node> res = new LinkedList<>();
         XMLParser xml = new XMLParser(ctx.filename().getText());
         this.curNodes.add(xml.getDoc());
+        this.docc = xml.getDoc();
         res = this.visit(ctx.rp());
         this.curNodes = new LinkedList<>(res);
         return res;
@@ -27,6 +30,7 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
     public LinkedList visitDouble_ap(XPathParser.Double_apContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
         XMLParser xml = new XMLParser(ctx.filename().getText());
+        this.docc = xml.getDoc();
         curNodes.add(xml.getDoc());
         curNodes.addAll(xpathTool.findAllChildren(curNodes));
         LinkedList<Node> res = new LinkedList<>(this.visit(ctx.rp()));
@@ -36,10 +40,27 @@ public class XPathVisitor_232 extends XPathBaseVisitor<LinkedList>{
 
     @Override
     public LinkedList visitAttname_rp(XPathParser.Attname_rpContext ctx) {
+//        LinkedList<Node> res = new LinkedList<>();
+//        XPathTool xpathTool = XPathTool.getInstance();
+//        res = xpathTool.findNodesByAttribute(curNodes, ctx.attName().getText());
+//        this.curNodes = res;
+//        return res;
         LinkedList<Node> res = new LinkedList<>();
+        // TODO: 1/27/18 这里进行了类型转换，返回的不再是一个Node的List，而是一个String的List
+        LinkedList<Node> nextChildren = new LinkedList<>();
         XPathTool xpathTool = XPathTool.getInstance();
-        res = xpathTool.findNodesByAttribute(curNodes, ctx.attName().getText());
-        this.curNodes = res;
+        for (Node n : this.curNodes){
+            if(n.getNodeType() == Node.ELEMENT_NODE){
+                Element e = (Element) n;
+                String attr = e.getAttribute(ctx.attName().getText());
+                if(!attr.equals("")){
+                    Node new_n = this.docc.createTextNode(attr);
+                    res.add(new_n);
+                }
+            }else{
+                // TODO: 1/28/18 这里需要报错
+            }
+        }
         return res;
     }
 
