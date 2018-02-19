@@ -1,22 +1,22 @@
 package xquery.impl;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import xmlparser.XMLParser;
-import xquery1.autogenerate.XQueryParser;
+import xquery.autogenerate.XQueryParser;
 import xpath.impl.XPathTool;
 import xquery.autogenerate.XQueryBaseVisitor;
 import xquery.autogenerate.XQueryParser;
 
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
+import java.util.*;
 
 public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
     private HashMap<String, LinkedList<Node>> context = new HashMap<>();
     private LinkedList<Node> curNodes = new LinkedList<>();
+    private Stack<HashMap<String, LinkedList<Node>>> contextStack = new Stack<>();
     private Document docc = null;
 
     @Override
@@ -394,36 +394,115 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
     @Override
     public LinkedList visitCond_NOTcond(XQueryParser.Cond_NOTcondContext ctx) {
-        return super.visitCond_NOTcond(ctx);
+        LinkedList<Boolean> res = new LinkedList<>();
+        res.add(!(((LinkedList<Boolean>)this.visit(ctx.cond())).get(0)));
+        return res;
     }
 
     @Override
     public LinkedList visitCond_xqIEQxq(XQueryParser.Cond_xqIEQxqContext ctx) {
-        return super.visitCond_xqIEQxq(ctx);
+        this.contextStack.push(new HashMap<>(this.context));
+        LinkedList<Node> left_res = this.visit(ctx.xq(0));
+        this.context = this.contextStack.pop();
+        this.contextStack.push(new HashMap<>(this.context));
+        LinkedList<Node> right_res = this.visit(ctx.xq(1));
+        this.context = this.contextStack.pop();
+        LinkedList<Boolean> res = new LinkedList<>();
+        Boolean flag = false;
+        for(Node l : left_res){
+            for(Node r : right_res){
+                if(l.isSameNode(r)){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+                break;
+        }
+        res.add(flag);
+        return res;
     }
 
     @Override
     public LinkedList visitCond_xqVEQxq(XQueryParser.Cond_xqVEQxqContext ctx) {
-        return super.visitCond_xqVEQxq(ctx);
+        this.contextStack.push(new HashMap<>(this.context));
+        LinkedList<Node> left_res = this.visit(ctx.xq(0));
+        this.context = this.contextStack.pop();
+        this.contextStack.push(new HashMap<>(this.context));
+        LinkedList<Node> right_res = this.visit(ctx.xq(1));
+        this.context = this.contextStack.pop();
+        LinkedList<Boolean> res = new LinkedList<>();
+        Boolean flag = false;
+        for(Node l : left_res){
+            for(Node r : right_res){
+                if(l.isEqualNode(r)){
+                    flag = true;
+                    break;
+                }
+            }
+            if(flag)
+                break;
+        }
+        res.add(flag);
+        return res;
     }
 
     @Override
     public LinkedList visitCond_PcondP(XQueryParser.Cond_PcondPContext ctx) {
-        return super.visitCond_PcondP(ctx);
+        return this.visit(ctx.cond());
+    }
+
+    private boolean Cond_SomeBackTrack(int startIdx, XQueryParser.Cond_SomeContext ctx){
+        int level = ctx.var().size();
+        if(startIdx == level){
+            if(((LinkedList<Boolean>)this.visit(ctx.cond())).get(0)) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }else{
+            LinkedList<Node> res = this.visit(ctx.xq(startIdx));
+            String key = ctx.var(startIdx).getText();
+            this.contextStack.push(new LinkedHashMap<>(this.context));
+            this.context.put(key, new LinkedList<>(res));
+            if(this.Cond_SomeBackTrack(startIdx+1, ctx)){
+                this.context = contextStack.pop();
+                return true;
+            }
+            this.context = contextStack.pop();
+        }
+        return false;
     }
 
     @Override
     public LinkedList visitCond_Some(XQueryParser.Cond_SomeContext ctx) {
-        return super.visitCond_Some(ctx);
+        // TODO: 2/19/18 感觉写的太简单了？？
+        int length = ctx.var().size();
+        this.contextStack.push(new HashMap<>(this.context));
+        for(int i = 0; i < length; i++){
+            this.context.put(ctx.var(i).getText(), this.visit(ctx.xq(i)));
+        }
+        LinkedList<Boolean> res = this.visit(ctx.cond());
+        this.context = this.contextStack.pop();
+        return res;
     }
 
     @Override
     public LinkedList visitCond_condORcond(XQueryParser.Cond_condORcondContext ctx) {
-        return super.visitCond_condORcond(ctx);
+        LinkedList<Boolean> res = new LinkedList<>();
+        Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.cond(0))).get(0);
+        Boolean right_res = ((LinkedList<Boolean>)this.visit(ctx.cond(1))).get(0);
+        res.add(left_res || right_res);
+        return res;
     }
 
     @Override
     public LinkedList visitCond_condANDcond(XQueryParser.Cond_condANDcondContext ctx) {
-        return super.visitCond_condANDcond(ctx);
+        LinkedList<Boolean> res = new LinkedList<>();
+        Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.cond(0))).get(0);
+        Boolean right_res = ((LinkedList<Boolean>)this.visit(ctx.cond(1))).get(0);
+        res.add(left_res && right_res);
+        return res;
     }
 }
