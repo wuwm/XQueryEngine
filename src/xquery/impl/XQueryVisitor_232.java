@@ -4,7 +4,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import xmlparser.XMLParser;
-import xpath.autogenerate.XQueryParser;
+import xquery.autogenerate.XQueryParser;
 import xpath.impl.XPathTool;
 import xquery.autogenerate.XQueryBaseVisitor;
 import xquery.autogenerate.XQueryParser;
