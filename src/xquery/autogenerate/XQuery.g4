@@ -3,16 +3,16 @@ import Xpath;
 
 
 xq
-	: var													    # Variable
-	| StringConstant											# StringC
-	| ap														# XqAp
-	| '(' xq ')'												# XqwithP
-	| xq ',' xq 											    # TwoXq
-	| xq '/' rp													# XqRp
-	| xq '//' rp 												# XqRpall
-	| '<' ID '>' '{' xq '}' '<' '/' ID '>'					    # XqConstructor
-	| forClause letClause? whereClause? returnClause    		# FLWR
-	| letClause xq 												# XqLet
+	: var													    # xq_var
+	| StringConstant											# xq_StringConstant
+	| ap														# xq_ap
+	| '(' xq ')'												# xq_PxqP
+	| xq ',' xq 											    # xq_xqCxq
+	| xq '/' rp													# xq_xqSxq
+	| xq '//' rp 												# xq_xqSSxq
+	| '<' ID '>' '{' xq '}' '<' '/' ID '>'					    # xq_IDxqID
+	| forClause letClause? whereClause? returnClause    		# xq_ForLetWhereReturn
+	| letClause xq 												# xq_LETxq
 	;
 
 var
@@ -36,16 +36,14 @@ returnClause
 	;
 
 cond
-	: xq '=' xq 											 # XqEqual
-	| xq 'eq' xq 											 # XqEqual
-	| xq '==' xq 											 # XqIs
-	| xq 'is' xq 											 # XqIs
-	| 'empty' '(' xq ')' 		 							 # XqEmpty
-	| 'some' var 'in' xq (',' var 'in' xq)* 'satisfies' cond # XqSome
-	| '(' cond ')' 											 # XqCondwithP
-	| cond 'and' cond 										 # XqCondAnd
-	| cond 'or' cond 										 # XqCondOr
-	| 'not' cond 											 # XqCondNot
+	: xq VEQ xq 											     # cond_xqVEQxq
+	| xq IEQ xq 											     # cond_xqIEQxq
+	| 'empty' '(' xq ')' 		 							     # cond_EMPTYxq
+	| 'some' var 'in' xq (',' var 'in' xq)* 'satisfies' cond     # cond_Some
+	| '(' cond ')' 											     # cond_PcondP
+	| cond 'and' cond 										     # cond_condANDcond
+	| cond 'or' cond 										     # cond_condORcond
+	| 'not' cond 											     # cond_NOTcond
 
 	;
 

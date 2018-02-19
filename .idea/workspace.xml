@@ -8,10 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7fc55b16-95a8-4969-9af0-772c67aeb5f0" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/input.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input.txt" afterPath="$PROJECT_DIR$/input.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4" afterPath="$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" afterPath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +29,8 @@
               <file leaf-file-name="XPathVisitor_232.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathVisitor_232.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="3900">
-                      <caret line="266" column="29" lean-forward="false" selection-start-line="266" selection-start-column="22" selection-end-line="266" selection-end-column="36" />
+                    <state relative-caret-position="579">
+                      <caret line="302" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
                       <folding>
                         <element signature="imports" expanded="true" />
                       </folding>
@@ -42,8 +41,8 @@
               <file leaf-file-name="XPath.g4" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="630">
-                      <caret line="42" column="30" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="42" selection-end-column="30" />
+                    <state relative-caret-position="330">
+                      <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
                       <folding />
                     </state>
                   </provider>
@@ -52,18 +51,28 @@
               <file leaf-file-name="XQuery.g4" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="301">
-                      <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+                    <state relative-caret-position="615">
+                      <caret line="41" column="76" lean-forward="true" selection-start-line="41" selection-start-column="76" selection-end-line="41" selection-end-column="76" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="XPathBaseVisitor.java" pinned="false" current-in-tab="true">
+              <file leaf-file-name="XPathBaseVisitor.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPathBaseVisitor.java">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="-1836">
                       <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="29" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="XQueryBaseVisitor.java" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQueryBaseVisitor.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="213">
+                      <caret line="180" column="37" lean-forward="false" selection-start-line="180" selection-start-column="23" selection-end-line="180" selection-end-column="37" />
                       <folding />
                     </state>
                   </provider>
@@ -79,42 +88,75 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="XQueryBaseVisitor.java" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQueryBaseVisitor.java">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="594">
-                      <caret line="335" column="1" lean-forward="true" selection-start-line="335" selection-start-column="1" selection-end-line="335" selection-end-column="1" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
-              <file leaf-file-name="input.xml" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/input.xml">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="330">
-                      <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
               <file leaf-file-name="XPath.g4" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="555">
-                      <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+                    <state relative-caret-position="540">
+                      <caret line="36" column="3" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="3" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="false">
+              <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="30">
-                      <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-                      <folding />
+                    <state relative-caret-position="327">
+                      <caret line="309" column="96" lean-forward="false" selection-start-line="309" selection-start-column="96" selection-end-line="309" selection-end-column="96" />
+                      <folding>
+                        <element signature="imports" expanded="true" />
+                        <element signature="e#4538#4539#0" expanded="true" />
+                        <element signature="e#4574#4575#0" expanded="true" />
+                        <element signature="e#4661#4662#0" expanded="true" />
+                        <element signature="e#4704#4705#0" expanded="true" />
+                        <element signature="e#6211#6217#0" expanded="true" />
+                        <element signature="e#9008#9009#0" expanded="true" />
+                        <element signature="e#9050#9051#0" expanded="true" />
+                        <element signature="e#10716#10717#0" expanded="true" />
+                        <element signature="e#10762#10763#0" expanded="true" />
+                        <element signature="e#10847#10848#0" expanded="true" />
+                        <element signature="e#10893#10894#0" expanded="true" />
+                        <element signature="e#10980#10981#0" expanded="true" />
+                        <element signature="e#11027#11028#0" expanded="true" />
+                        <element signature="e#11379#11380#0" expanded="true" />
+                        <element signature="e#11427#11428#0" expanded="true" />
+                        <element signature="e#11514#11515#0" expanded="true" />
+                        <element signature="e#11561#11562#0" expanded="true" />
+                        <element signature="e#11648#11649#0" expanded="true" />
+                        <element signature="e#11695#11696#0" expanded="true" />
+                        <element signature="e#11784#11785#0" expanded="true" />
+                        <element signature="e#11832#11833#0" expanded="true" />
+                        <element signature="e#11919#11920#0" expanded="true" />
+                        <element signature="e#11966#11967#0" expanded="true" />
+                        <element signature="e#12047#12048#0" expanded="true" />
+                        <element signature="e#12091#12092#0" expanded="true" />
+                        <element signature="e#12174#12175#0" expanded="true" />
+                        <element signature="e#12219#12220#0" expanded="true" />
+                        <element signature="e#12304#12305#0" expanded="true" />
+                        <element signature="e#12350#12351#0" expanded="true" />
+                        <element signature="e#12597#12598#0" expanded="true" />
+                        <element signature="e#12639#12640#0" expanded="true" />
+                        <element signature="e#12728#12729#0" expanded="true" />
+                        <element signature="e#12776#12777#0" expanded="true" />
+                        <element signature="e#12865#12866#0" expanded="true" />
+                        <element signature="e#12913#12914#0" expanded="true" />
+                        <element signature="e#13006#13007#0" expanded="true" />
+                        <element signature="e#13056#13057#0" expanded="true" />
+                        <element signature="e#13151#13152#0" expanded="true" />
+                        <element signature="e#13202#13203#0" expanded="true" />
+                        <element signature="e#13297#13298#0" expanded="true" />
+                        <element signature="e#13348#13349#0" expanded="true" />
+                        <element signature="e#13443#13444#0" expanded="true" />
+                        <element signature="e#13494#13495#0" expanded="true" />
+                        <element signature="e#13589#13590#0" expanded="true" />
+                        <element signature="e#13640#13641#0" expanded="true" />
+                        <element signature="e#13735#13736#0" expanded="true" />
+                        <element signature="e#13786#13787#0" expanded="true" />
+                        <element signature="e#13879#13880#0" expanded="true" />
+                        <element signature="e#13929#13930#0" expanded="true" />
+                        <element signature="e#14018#14019#0" expanded="true" />
+                        <element signature="e#14066#14067#0" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -191,10 +233,12 @@
       <find>txt</find>
       <find>attr</find>
       <find>att</find>
+      <find>XPathParser</find>
       <find>filename</find>
     </findStrings>
     <replaceStrings>
       <replace />
+      <replace>XQueryParser</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -233,6 +277,7 @@
         <option value="$PROJECT_DIR$/src/xpath/impl/XPathVisitor_232.java" />
         <option value="$PROJECT_DIR$/input.txt" />
         <option value="$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4" />
+        <option value="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
       </list>
     </option>
   </component>
@@ -243,6 +288,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="977" />
@@ -575,7 +621,7 @@
       <workItem from="1517270682686" duration="6497000" />
       <workItem from="1517457554495" duration="692000" />
       <workItem from="1518998529494" duration="4900000" />
-      <workItem from="1519015834444" duration="560000" />
+      <workItem from="1519015834444" duration="3568000" />
     </task>
     <servers />
   </component>
@@ -612,7 +658,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70020000" />
+    <option name="totallyTimeSpent" value="73028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -973,6 +1019,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1015,6 +1062,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19200">
           <caret line="1280" column="5" lean-forward="false" selection-start-line="1280" selection-start-column="5" selection-end-line="1280" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,6 +1070,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,53 +1089,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="30" lean-forward="false" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="30" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="42" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="27" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathVisitor_232.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3900">
-          <caret line="266" column="29" lean-forward="false" selection-start-line="266" selection-start-column="22" selection-end-line="266" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1106,35 +1113,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4">
+    <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPathBaseVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="-1836">
+          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="27" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQueryBaseVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="335" column="1" lean-forward="true" selection-start-line="335" selection-start-column="1" selection-end-line="335" selection-end-column="1" />
+        <state relative-caret-position="213">
+          <caret line="180" column="37" lean-forward="false" selection-start-line="180" selection-start-column="23" selection-end-line="180" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="30" column="18" lean-forward="true" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        <state relative-caret-position="615">
+          <caret line="41" column="76" lean-forward="true" selection-start-line="41" selection-start-column="76" selection-end-line="41" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPathBaseVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1836">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="29" />
+        <state relative-caret-position="540">
+          <caret line="36" column="3" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="3" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathVisitor_232.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="302" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="309" column="96" lean-forward="false" selection-start-line="309" selection-start-column="96" selection-end-line="309" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4538#4539#0" expanded="true" />
+            <element signature="e#4574#4575#0" expanded="true" />
+            <element signature="e#4661#4662#0" expanded="true" />
+            <element signature="e#4704#4705#0" expanded="true" />
+            <element signature="e#6211#6217#0" expanded="true" />
+            <element signature="e#9008#9009#0" expanded="true" />
+            <element signature="e#9050#9051#0" expanded="true" />
+            <element signature="e#10716#10717#0" expanded="true" />
+            <element signature="e#10762#10763#0" expanded="true" />
+            <element signature="e#10847#10848#0" expanded="true" />
+            <element signature="e#10893#10894#0" expanded="true" />
+            <element signature="e#10980#10981#0" expanded="true" />
+            <element signature="e#11027#11028#0" expanded="true" />
+            <element signature="e#11379#11380#0" expanded="true" />
+            <element signature="e#11427#11428#0" expanded="true" />
+            <element signature="e#11514#11515#0" expanded="true" />
+            <element signature="e#11561#11562#0" expanded="true" />
+            <element signature="e#11648#11649#0" expanded="true" />
+            <element signature="e#11695#11696#0" expanded="true" />
+            <element signature="e#11784#11785#0" expanded="true" />
+            <element signature="e#11832#11833#0" expanded="true" />
+            <element signature="e#11919#11920#0" expanded="true" />
+            <element signature="e#11966#11967#0" expanded="true" />
+            <element signature="e#12047#12048#0" expanded="true" />
+            <element signature="e#12091#12092#0" expanded="true" />
+            <element signature="e#12174#12175#0" expanded="true" />
+            <element signature="e#12219#12220#0" expanded="true" />
+            <element signature="e#12304#12305#0" expanded="true" />
+            <element signature="e#12350#12351#0" expanded="true" />
+            <element signature="e#12597#12598#0" expanded="true" />
+            <element signature="e#12639#12640#0" expanded="true" />
+            <element signature="e#12728#12729#0" expanded="true" />
+            <element signature="e#12776#12777#0" expanded="true" />
+            <element signature="e#12865#12866#0" expanded="true" />
+            <element signature="e#12913#12914#0" expanded="true" />
+            <element signature="e#13006#13007#0" expanded="true" />
+            <element signature="e#13056#13057#0" expanded="true" />
+            <element signature="e#13151#13152#0" expanded="true" />
+            <element signature="e#13202#13203#0" expanded="true" />
+            <element signature="e#13297#13298#0" expanded="true" />
+            <element signature="e#13348#13349#0" expanded="true" />
+            <element signature="e#13443#13444#0" expanded="true" />
+            <element signature="e#13494#13495#0" expanded="true" />
+            <element signature="e#13589#13590#0" expanded="true" />
+            <element signature="e#13640#13641#0" expanded="true" />
+            <element signature="e#13735#13736#0" expanded="true" />
+            <element signature="e#13786#13787#0" expanded="true" />
+            <element signature="e#13879#13880#0" expanded="true" />
+            <element signature="e#13929#13930#0" expanded="true" />
+            <element signature="e#14018#14019#0" expanded="true" />
+            <element signature="e#14066#14067#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
