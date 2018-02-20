@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc55b16-95a8-4969-9af0-772c67aeb5f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input.txt" afterPath="$PROJECT_DIR$/input.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Main.java" afterPath="$PROJECT_DIR$/src/main/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4" afterPath="$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" afterPath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -75,7 +71,7 @@
               <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="150">
+                    <state relative-caret-position="-432">
                       <caret line="449" column="59" lean-forward="false" selection-start-line="449" selection-start-column="59" selection-end-line="449" selection-end-column="59" />
                       <folding>
                         <element signature="imports" expanded="true" />
@@ -179,9 +175,11 @@
               <file leaf-file-name="out.xml" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/out.xml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="45">
-                      <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-                      <folding />
+                    <state relative-caret-position="135">
+                      <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+                      <folding>
+                        <element signature="e#413#418#0" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -196,7 +194,7 @@
             <entry file="file://$PROJECT_DIR$/input.txt">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
+                  <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -285,8 +283,8 @@
         <option value="$PROJECT_DIR$/src/xpath/impl/XPathVisitor_232.java" />
         <option value="$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
-        <option value="$PROJECT_DIR$/input.txt" />
         <option value="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
+        <option value="$PROJECT_DIR$/input.txt" />
       </list>
     </option>
   </component>
@@ -639,7 +637,7 @@
       <workItem from="1517270682686" duration="6497000" />
       <workItem from="1517457554495" duration="692000" />
       <workItem from="1518998529494" duration="4900000" />
-      <workItem from="1519015834444" duration="34765000" />
+      <workItem from="1519015834444" duration="34830000" />
     </task>
     <servers />
   </component>
@@ -676,7 +674,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104225000" />
+    <option name="totallyTimeSpent" value="104290000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1151,9 +1149,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/out.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+          <folding>
+            <element signature="e#413#418#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1202,17 +1202,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="-432">
           <caret line="449" column="59" lean-forward="false" selection-start-line="449" selection-start-column="59" selection-end-line="449" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1240,6 +1232,14 @@
             <element signature="e#21083#21084#0" expanded="true" />
             <element signature="e#21128#21129#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
