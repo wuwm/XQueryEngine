@@ -8,6 +8,9 @@ import xpath.autogenerate.XPathLexer;
 import xpath.autogenerate.XPathParser;
 import xpath.error.ErrorListener;
 import xpath.impl.XPathVisitor_232;
+import xquery.autogenerate.XQueryLexer;
+import xquery.autogenerate.XQueryParser;
+import xquery.impl.XQueryVisitor_232;
 
 import java.util.LinkedList;
 
@@ -21,13 +24,13 @@ public class Main {
             e.printStackTrace();
         }
 
-        XPathLexer lexer = new XPathLexer(input);
-        XPathParser parser = new XPathParser(new CommonTokenStream(lexer));
+        XQueryLexer lexer = new XQueryLexer(input);
+        XQueryParser parser = new XQueryParser(new CommonTokenStream(lexer));
         parser.removeErrorListeners();
         parser.addErrorListener(new ErrorListener());
-        XPathVisitor_232 visitor = new XPathVisitor_232();
+        XQueryVisitor_232 visitor = new XQueryVisitor_232();
 
-        LinkedList res = visitor.visit(parser.ap());
+        LinkedList res = visitor.visit(parser.xq());
         XMLWriter writer = new XMLWriter();
         writer.output(res);
     }

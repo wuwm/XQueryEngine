@@ -10,7 +10,7 @@ xq
 	| xq ',' xq 											    # xq_xqCxq
 	| xq '/' rp													# xq_xqSxq
 	| xq '//' rp 												# xq_xqSSxq
-	| '<' ID '>' '{' xq '}' '<' '/' ID '>'					    # xq_IDxqID
+	| '<' tagName '>' '{' xq '}' '<' '/' tagName '>'			# xq_IDxqID
 	| forClause letClause? whereClause? returnClause    		# xq_ForLetWhereReturn
 	| letClause xq 												# xq_LETxq
 	;

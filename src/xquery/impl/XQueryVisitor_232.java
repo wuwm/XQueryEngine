@@ -1,6 +1,5 @@
 package xquery.impl;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -279,7 +278,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         Boolean flag = false;
         for(Node n1 : left_res){
             for(Node n2 : right_res){
-                if(n1 == n2){
+                if(n1.isSameNode(n2)){
                     // TODO: 1/28/18 这里直接用==的方法不知道对不对
                     flag = true;
                     break;
@@ -314,82 +313,228 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
     @Override
     public LinkedList visitXq_StringConstant(XQueryParser.Xq_StringConstantContext ctx) {
-        return super.visitXq_StringConstant(ctx);
+        Node e = docc.createTextNode(ctx.getText().replace("\"", ""));
+        LinkedList<Node> res = new LinkedList<>();
+        res.add(e);
+        return res;
     }
 
     @Override
     public LinkedList visitXq_IDxqID(XQueryParser.Xq_IDxqIDContext ctx) {
-        return super.visitXq_IDxqID(ctx);
+        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
+        this.backupContext();
+        String tagName = ctx.tagName(0).getText();
+        Node e = docc.createElement(tagName);
+        LinkedList<Node> res = new LinkedList<>();
+        LinkedList<Node> children = this.visit(ctx.xq());
+        for(Node ee : children){
+            e.appendChild(ee);
+        }
+        res.add(e);
+        this.recoverContex();
+        this.curNodes = curNodes_bak;
+        return res;
+    }
+
+    private void backupContext(){
+        this.contextStack.push(new HashMap<>(this.context));
+    }
+
+    private void recoverContex(){
+        this.context = this.contextStack.pop();
     }
 
     @Override
     public LinkedList visitXq_xqCxq(XQueryParser.Xq_xqCxqContext ctx) {
-        return super.visitXq_xqCxq(ctx);
+        this.backupContext();
+        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
+        LinkedList<Node> left_res = this.visit(ctx.xq(0));
+        this.curNodes = curNodes_bak;
+        this.recoverContex();
+        this.backupContext();
+        curNodes_bak = new LinkedList<>(this.curNodes);
+        LinkedList<Node> right_res = this.visit(ctx.xq(1));
+        this.recoverContex();
+        this.curNodes = curNodes_bak;
+        LinkedHashSet<Node> res_NODUP = new LinkedHashSet<>();
+        res_NODUP.addAll(left_res);
+        res_NODUP.addAll(right_res);
+        return new LinkedList<Node>(res_NODUP);
     }
 
     @Override
     public LinkedList visitXq_xqSxq(XQueryParser.Xq_xqSxqContext ctx) {
-        return super.visitXq_xqSxq(ctx);
+        LinkedList<Node> res = new LinkedList<>();
+        this.curNodes = new LinkedList<Node>(this.visit(ctx.xq()));
+        res = this.visit(ctx.rp());
+        return res;
     }
 
     @Override
     public LinkedList visitXq_xqSSxq(XQueryParser.Xq_xqSSxqContext ctx) {
-        return super.visitXq_xqSSxq(ctx);
+        XPathTool xpathTool = XPathTool.getInstance();
+
+        // TODO: 1/27/18 这里是=还是addall，有点不确定
+        this.curNodes = new LinkedList<>(this.visit(ctx.xq()));
+        LinkedList<Node> aaa = xpathTool.findAllChildren(curNodes);
+        if(aaa == null || aaa.size() == 0)
+        {
+            int a = 0;
+        }
+        this.curNodes.addAll(aaa);
+        this.curNodes = new LinkedList<Node>(this.visit(ctx.rp()));
+        return this.curNodes;
     }
 
     @Override
     public LinkedList visitXq_LETxq(XQueryParser.Xq_LETxqContext ctx) {
-        return super.visitXq_LETxq(ctx);
+        this.visit(ctx.letClause());
+        this.curNodes = new LinkedList<>(this.visit(ctx.xq()));
+        return this.curNodes;
     }
 
     @Override
     public LinkedList visitXq_ap(XQueryParser.Xq_apContext ctx) {
-        return super.visitXq_ap(ctx);
+        this.curNodes = new LinkedList<>(this.visit(ctx.ap()));
+        return this.curNodes;
     }
+    int a=0;
+    private void printContext(){
+        this.a++;
+        for(String key : this.context.keySet()){
+            System.out.println(key+"---"+this.context.get(key).size());
 
+        }
+        System.out.println();
+        System.out.println(this.a);
+    }
     @Override
     public LinkedList visitXq_var(XQueryParser.Xq_varContext ctx) {
-        return super.visitXq_var(ctx);
+        String varString = ctx.var().getText();
+        LinkedList<Node> temp = this.context.get(varString);
+        printContext();
+        if(temp == null){
+            printContext();
+            int b = this.context.size();
+            System.out.println("asfas");
+        }
+        LinkedList<Node> res = new LinkedList<Node>(temp);
+        this.curNodes.addAll(res);
+        return res;
     }
 
     @Override
     public LinkedList visitXq_PxqP(XQueryParser.Xq_PxqPContext ctx) {
-        return super.visitXq_PxqP(ctx);
+        return this.visit(ctx.xq());
+    }
+
+
+    private void Xq_ForLetWhereReturnHelper(XQueryParser.Xq_ForLetWhereReturnContext ctx, int startIdx, LinkedList<Node> res){
+        int length = ctx.forClause().var().size();
+        if(startIdx >= length){
+            if(ctx.letClause() != null)
+                this.visit(ctx.letClause());
+            if(ctx.whereClause() != null){
+                if(!((LinkedList<Boolean>)this.visit(ctx.whereClause())).get(0)){
+                    return;
+                }
+//                this.curNodes = this.visit(ctx.whereClause());
+            }
+            LinkedList<Node> aaa = this.visit(ctx.returnClause());
+            if(aaa == null || aaa.size() == 0){
+                System.out.println("fdsafs");
+            }
+            res.addAll(aaa);
+        }else{
+            LinkedList<Node> res_temp = new LinkedList<Node>(this.visit(ctx.forClause().xq(startIdx)));
+            String varString = ctx.forClause().var(startIdx).getText();
+            for(Node e : res_temp) {
+                this.backupContext();
+                LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
+                LinkedList<Node> t = new LinkedList<>();
+                t.add(e);
+                this.context.put(varString, t);
+                Xq_ForLetWhereReturnHelper(ctx, startIdx + 1, res);
+                this.curNodes = curNodes_bak;
+                this.recoverContex();
+            }
+        }
     }
 
     @Override
     public LinkedList visitXq_ForLetWhereReturn(XQueryParser.Xq_ForLetWhereReturnContext ctx) {
-        return super.visitXq_ForLetWhereReturn(ctx);
+        this.contextStack.push(new HashMap<>(this.context));
+        LinkedList<Node> res = new LinkedList<>();
+        Xq_ForLetWhereReturnHelper(ctx, 0, res);
+        this.context = this.contextStack.pop();
+        return res;
     }
 
     @Override
     public LinkedList visitVar(XQueryParser.VarContext ctx) {
+        //Don't need to implement, because never used.
         return super.visitVar(ctx);
     }
 
     @Override
     public LinkedList visitForClause(XQueryParser.ForClauseContext ctx) {
+        //Don't need to implement, because never used.
         return super.visitForClause(ctx);
     }
 
     @Override
     public LinkedList visitLetClause(XQueryParser.LetClauseContext ctx) {
-        return super.visitLetClause(ctx);
+        int length = ctx.var().size();
+        for(int i = 0; i < length; i++){
+            this.context.put(ctx.var(i).getText(), this.visit(ctx.xq(i)));
+        }
+        return new LinkedList<>();
     }
 
     @Override
     public LinkedList visitWhereClause(XQueryParser.WhereClauseContext ctx) {
-        return super.visitWhereClause(ctx);
+//        assert this.visit(ctx.cond()).size() == 1;
+//        assert this.visit(ctx.cond()).get(0) instanceof Boolean;
+//        LinkedList<Node> res = new LinkedList<>();
+//        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
+//        for (Node n : curNodes_bak){
+//            LinkedList<Node> curNodes_new = new LinkedList<>();
+//            curNodes_new.add(n);
+//            this.curNodes = curNodes_new;
+//            LinkedList<Boolean> filterRet = this.visit(ctx.cond());
+//            assert filterRet.size() == 1;
+//            assert filterRet.get(0) instanceof Boolean;
+//            Boolean filterValue = filterRet.get(0);
+//            if (filterValue){
+//                res.add(n);
+//            }
+//        }
+//        this.curNodes = curNodes_bak;
+//        // TODO: 2/20/18 上面有点疑惑
+//        return res;
+        return this.visit(ctx.cond());
     }
+
 
     @Override
     public LinkedList visitReturnClause(XQueryParser.ReturnClauseContext ctx) {
-        return super.visitReturnClause(ctx);
+        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
+        LinkedList<Node> res = new LinkedList<>(this.visit(ctx.xq()));
+        this.curNodes = curNodes_bak;
+        if(res == null || res.size() == 0) {
+            int a = 0;
+        }
+        return res;
     }
 
     @Override
     public LinkedList visitCond_EMPTYxq(XQueryParser.Cond_EMPTYxqContext ctx) {
-        return super.visitCond_EMPTYxq(ctx);
+        LinkedList<Boolean> res = new LinkedList<>();
+        if(this.visit(ctx.xq()).isEmpty())
+            res.add(Boolean.TRUE);
+        else
+            res.add(Boolean.FALSE);
+        return res;
     }
 
     @Override
