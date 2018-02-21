@@ -96,6 +96,7 @@
               <file leaf-file-name="XPathTool.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
                   <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                     <state relative-caret-position="77">
                       <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
                       <folding>
@@ -110,6 +111,10 @@
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="0">
                       <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+                    <state relative-caret-position="307">
+                      <caret line="73" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+>>>>>>> wwm
                       <folding />
                     </state>
                   </provider>
@@ -648,7 +653,7 @@
       <workItem from="1517270682686" duration="6497000" />
       <workItem from="1517457554495" duration="692000" />
       <workItem from="1518998529494" duration="4900000" />
-      <workItem from="1519015834444" duration="42985000" />
+      <workItem from="1519015834444" duration="43410000" />
     </task>
     <servers />
   </component>
@@ -685,7 +690,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="112457000" />
+=======
+    <option name="totallyTimeSpent" value="112870000" />
+>>>>>>> wwm
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1218,6 +1227,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="77">
           <caret line="58" column="0" lean-forward="true" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
@@ -1238,6 +1248,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+=======
+        <state relative-caret-position="307">
+          <caret line="73" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+>>>>>>> wwm
           <folding />
         </state>
       </provider>
