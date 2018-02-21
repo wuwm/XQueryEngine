@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc55b16-95a8-4969-9af0-772c67aeb5f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" afterPath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xpath/impl/XPathTool.java" afterPath="$PROJECT_DIR$/src/xpath/impl/XPathTool.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +21,7 @@
     <favorites_list name="XQueryEngine" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.8084291">
+    <splitter split-orientation="vertical" split-proportion="0.69093233">
       <split-first>
         <splitter split-orientation="horizontal" split-proportion="0.5544073">
           <split-first>
@@ -68,11 +68,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="true">
+              <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="1461">
-                      <caret line="570" column="9" lean-forward="true" selection-start-line="570" selection-start-column="9" selection-end-line="570" selection-end-column="9" />
+                    <state relative-caret-position="4087">
+                      <caret line="485" column="8" lean-forward="true" selection-start-line="485" selection-start-column="8" selection-end-line="485" selection-end-column="8" />
                       <folding>
                         <element signature="imports" expanded="true" />
                         <element signature="e#4555#4556#0" expanded="true" />
@@ -99,6 +99,16 @@
                         <element signature="e#20596#20597#0" expanded="true" />
                         <element signature="e#20641#20642#0" expanded="true" />
                       </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="XPathTool.java" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="322">
+                      <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="2" selection-end-line="86" selection-end-column="7" />
+                      <folding />
                     </state>
                   </provider>
                 </entry>
@@ -148,21 +158,11 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="XQuery.tokens" pinned="false" current-in-tab="false">
-                <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.tokens">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="0">
-                      <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                      <folding />
-                    </state>
-                  </provider>
-                </entry>
-              </file>
             </leaf>
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="XQuery.g4" pinned="false" current-in-tab="true">
+              <file leaf-file-name="XQuery.g4" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="176">
@@ -172,7 +172,7 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="out.xml" pinned="false" current-in-tab="false">
+              <file leaf-file-name="out.xml" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/out.xml">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="75">
@@ -248,8 +248,8 @@
       <find>null</find>
       <find>text</find>
       <find>addAll</find>
-      <find>.xq(</find>
       <find>cond()</find>
+      <find>.xq(</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -279,7 +279,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/xpath/impl/Value.java" />
         <option value="$PROJECT_DIR$/src/test/xpath/impl/XPathToolTest.java" />
-        <option value="$PROJECT_DIR$/src/xpath/impl/XPathTool.java" />
         <option value="$PROJECT_DIR$/src/xmlparser/XMLWriter.java" />
         <option value="$PROJECT_DIR$/src/xpath/error/ErrorListener.java" />
         <option value="$PROJECT_DIR$/out.xml" />
@@ -293,6 +292,7 @@
         <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/input.txt" />
         <option value="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
+        <option value="$PROJECT_DIR$/src/xpath/impl/XPathTool.java" />
       </list>
     </option>
   </component>
@@ -646,7 +646,7 @@
       <workItem from="1517270682686" duration="6497000" />
       <workItem from="1517457554495" duration="692000" />
       <workItem from="1518998529494" duration="4900000" />
-      <workItem from="1519015834444" duration="41617000" />
+      <workItem from="1519015834444" duration="42985000" />
     </task>
     <servers />
   </component>
@@ -683,7 +683,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111077000" />
+    <option name="totallyTimeSpent" value="112445000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -696,7 +696,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="986" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32949308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -705,18 +704,18 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29493088" sideWeight="0.5021299" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.50319487" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09792627" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21428572" sideWeight="0.4968051" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124068156" sideWeight="0.7177522" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124068156" sideWeight="0.7155425" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36321303" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124068156" sideWeight="0.28224775" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124068156" sideWeight="0.28445747" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1017,14 +1016,6 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.xml/org/w3c/dom/NamedNodeMap.java" />
     <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.tokens" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.xml/org/w3c/dom/Element.java" />
-    <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="53" column="16" lean-forward="false" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/xpath/error/ErrorListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1183,14 +1174,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -1201,8 +1184,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1461">
-          <caret line="570" column="9" lean-forward="true" selection-start-line="570" selection-start-column="9" selection-end-line="570" selection-end-column="9" />
+        <state relative-caret-position="4087">
+          <caret line="485" column="8" lean-forward="true" selection-start-line="485" selection-start-column="8" selection-end-line="485" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4555#4556#0" expanded="true" />
@@ -1229,6 +1212,22 @@
             <element signature="e#20596#20597#0" expanded="true" />
             <element signature="e#20641#20642#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="2" selection-end-line="86" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

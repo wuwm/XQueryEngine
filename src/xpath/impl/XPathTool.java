@@ -57,34 +57,43 @@ public class XPathTool {
         return res;
     }
 
-//    public LinkedList<Node> findAllChildren(Node startNode){
-//        LinkedList<Node> res = new LinkedList<>();
-//        NodeList children = startNode.getChildNodes();
-//
-//        res.add(startNode);
-//        if(children.getLength() == 0){
-//            return res;
+    public LinkedList<Node> findAllChildren(Node startNode){
+        LinkedHashSet<Node> res = new LinkedHashSet<>();
+        NodeList children = startNode.getChildNodes();
+
+        res.add(startNode);
+        if(children.getLength() == 0){
+            return new LinkedList<>(res);
+        }
+        for(int i = 0; i < children.getLength(); i++){
+
+            res.addAll(findAllChildren(children.item(i)));
+        }
+        return new LinkedList<>(res);
+    }
+
+//    public LinkedList<Node> findAllChildren(List<Node> startNodeList){
+//        LinkedHashSet<Node> res = new LinkedHashSet<>();
+//        Queue<Node> queue = new LinkedList<>();
+//        queue.addAll(this.findNextChildren(startNodeList));
+//        while(!(queue.isEmpty())){
+//            Node n = queue.remove();
+//            if (n.getNodeType() == Node.ELEMENT_NODE)
+//                res.add(n);
+//            queue.addAll(this.findNextChildren(n));
 //        }
-//        for(int i = 0; i < children.getLength(); i++){
-//
-//            res.addAll(findAllChildren(children.item(i)));
-//        }
-//        return res;
+//        LinkedList<Node> res2 = new LinkedList<>(res);
+//        return res2;
 //    }
 
-    public LinkedList<Node> findAllChildren(List<Node> startNodeList){
+    public LinkedList<Node> findAllChildren(List<Node> startNodeList) {
         LinkedHashSet<Node> res = new LinkedHashSet<>();
-        Queue<Node> queue = new LinkedList<>();
-        queue.addAll(this.findNextChildren(startNodeList));
-        while(!(queue.isEmpty())){
-            Node n = queue.remove();
-            if (n.getNodeType() == Node.ELEMENT_NODE)
-                res.add(n);
-            queue.addAll(this.findNextChildren(n));
+        for (Node n : startNodeList) {
+            res.addAll(findAllChildren(n));
         }
-        LinkedList<Node> res2 = new LinkedList<>(res);
-        return res2;
+        return new LinkedList<>(res);
     }
+
 
     public Node findParent(Node startNode){
         return startNode.getParentNode();
