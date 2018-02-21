@@ -359,6 +359,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         LinkedHashSet<Node> res_NODUP = new LinkedHashSet<>();
         res_NODUP.addAll(left_res);
         res_NODUP.addAll(right_res);
+        this.curNodes = new LinkedList<Node>(res_NODUP);
         return new LinkedList<Node>(res_NODUP);
     }
 
@@ -367,20 +368,15 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         LinkedList<Node> res = new LinkedList<>();
         this.curNodes = new LinkedList<Node>(this.visit(ctx.xq()));
         res = this.visit(ctx.rp());
+        this.curNodes = new LinkedList<Node>(res);
         return res;
     }
 
     @Override
     public LinkedList visitXq_xqSSxq(XQueryParser.Xq_xqSSxqContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
-
-        // TODO: 1/27/18 这里是=还是addall，有点不确定
         this.curNodes = new LinkedList<>(this.visit(ctx.xq()));
-        LinkedList<Node> aaa = xpathTool.findAllChildren(curNodes);
-        if(aaa == null || aaa.size() == 0)
-        {
-            int a = 0;
-        }
+        LinkedList<Node> aaa = xpathTool.findAllChildren(this.curNodes);
         this.curNodes.addAll(aaa);
         this.curNodes = new LinkedList<Node>(this.visit(ctx.rp()));
         return this.curNodes;
@@ -398,26 +394,16 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         this.curNodes = new LinkedList<>(this.visit(ctx.ap()));
         return this.curNodes;
     }
-    int a=0;
-    private void printContext(){
-        this.a++;
-        for(String key : this.context.keySet()){
-            System.out.println(key+"---"+this.context.get(key).size());
 
-        }
-        System.out.println();
-        System.out.println(this.a);
-    }
     @Override
     public LinkedList visitXq_var(XQueryParser.Xq_varContext ctx) {
         String varString = ctx.var().getText();
         LinkedList<Node> temp = this.context.get(varString);
-        printContext();
-        if(temp == null){
-            printContext();
-            int b = this.context.size();
-            System.out.println("asfas");
-        }
+//        if(temp == null){
+//            printContext();
+//            int b = this.context.size();
+//            System.out.println("asfas");
+//        }
         LinkedList<Node> res = new LinkedList<Node>(temp);
         this.curNodes.addAll(res);
         return res;
@@ -510,7 +496,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 //            }
 //        }
 //        this.curNodes = curNodes_bak;
-//        // TODO: 2/20/18 上面有点疑惑
 //        return res;
         return this.visit(ctx.cond());
     }
@@ -518,12 +503,8 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
     @Override
     public LinkedList visitReturnClause(XQueryParser.ReturnClauseContext ctx) {
-        LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
         LinkedList<Node> res = new LinkedList<>(this.visit(ctx.xq()));
-        this.curNodes = curNodes_bak;
-        if(res == null || res.size() == 0) {
-            int a = 0;
-        }
+        this.curNodes = res;
         return res;
     }
 
@@ -597,38 +578,39 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         return this.visit(ctx.cond());
     }
 
-    private boolean Cond_SomeBackTrack(int startIdx, XQueryParser.Cond_SomeContext ctx){
+    private void Cond_SomeBackTrack(int startIdx, XQueryParser.Cond_SomeContext ctx, LinkedList<Boolean> res1){
         int level = ctx.var().size();
-        if(startIdx == level){
+        if(startIdx >= level){
             if(((LinkedList<Boolean>)this.visit(ctx.cond())).get(0)) {
-                return true;
+                res1.add(Boolean.TRUE);
             }
             else{
-                return false;
+                res1.add(Boolean.FALSE);
             }
         }else{
             LinkedList<Node> res = this.visit(ctx.xq(startIdx));
             String key = ctx.var(startIdx).getText();
-            this.contextStack.push(new LinkedHashMap<>(this.context));
-            this.context.put(key, new LinkedList<>(res));
-            if(this.Cond_SomeBackTrack(startIdx+1, ctx)){
+            for(Node e : res){
+                this.contextStack.push(new LinkedHashMap<>(this.context));
+                LinkedList<Node> t = new LinkedList<>();
+                t.add(e);
+                this.context.put(key, t);
+                this.Cond_SomeBackTrack(startIdx+1, ctx, res1);
                 this.context = contextStack.pop();
-                return true;
             }
-            this.context = contextStack.pop();
         }
-        return false;
     }
 
     @Override
     public LinkedList visitCond_Some(XQueryParser.Cond_SomeContext ctx) {
-        // TODO: 2/19/18 感觉写的太简单了？？
         int length = ctx.var().size();
         this.contextStack.push(new HashMap<>(this.context));
-        for(int i = 0; i < length; i++){
-            this.context.put(ctx.var(i).getText(), this.visit(ctx.xq(i)));
-        }
-        LinkedList<Boolean> res = this.visit(ctx.cond());
+//        for(int i = 0; i < length; i++){
+//            this.context.put(ctx.var(i).getText(), this.visit(ctx.xq(i)));
+//        }
+//        LinkedList<Boolean> res = this.visit(ctx.cond());
+        LinkedList<Boolean> res = new LinkedList<>();
+        Cond_SomeBackTrack(0, ctx, res);
         this.context = this.contextStack.pop();
         return res;
     }
