@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc55b16-95a8-4969-9af0-772c67aeb5f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input.txt" afterPath="$PROJECT_DIR$/input.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" afterPath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -73,8 +71,8 @@
               <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="-975">
-                      <caret line="504" column="79" lean-forward="false" selection-start-line="504" selection-start-column="79" selection-end-line="504" selection-end-column="79" />
+                    <state relative-caret-position="1461">
+                      <caret line="570" column="9" lean-forward="true" selection-start-line="570" selection-start-column="9" selection-end-line="570" selection-end-column="9" />
                       <folding>
                         <element signature="imports" expanded="true" />
                         <element signature="e#4555#4556#0" expanded="true" />
@@ -97,9 +95,9 @@
                         <element signature="e#14522#14528#0" expanded="true" />
                         <element signature="e#14680#14681#0" expanded="true" />
                         <element signature="e#14723#14724#0" expanded="true" />
-                        <element signature="e#15545#15551#0" expanded="true" />
-                        <element signature="e#20590#20591#0" expanded="true" />
-                        <element signature="e#20635#20636#0" expanded="true" />
+                        <element signature="e#15551#15557#0" expanded="true" />
+                        <element signature="e#20596#20597#0" expanded="true" />
+                        <element signature="e#20641#20642#0" expanded="true" />
                       </folding>
                     </state>
                   </provider>
@@ -648,7 +646,7 @@
       <workItem from="1517270682686" duration="6497000" />
       <workItem from="1517457554495" duration="692000" />
       <workItem from="1518998529494" duration="4900000" />
-      <workItem from="1519015834444" duration="41033000" />
+      <workItem from="1519015834444" duration="41617000" />
     </task>
     <servers />
   </component>
@@ -685,7 +683,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110493000" />
+    <option name="totallyTimeSpent" value="111077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1203,8 +1201,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-975">
-          <caret line="504" column="79" lean-forward="false" selection-start-line="504" selection-start-column="79" selection-end-line="504" selection-end-column="79" />
+        <state relative-caret-position="1461">
+          <caret line="570" column="9" lean-forward="true" selection-start-line="570" selection-start-column="9" selection-end-line="570" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4555#4556#0" expanded="true" />
@@ -1227,9 +1225,9 @@
             <element signature="e#14522#14528#0" expanded="true" />
             <element signature="e#14680#14681#0" expanded="true" />
             <element signature="e#14723#14724#0" expanded="true" />
-            <element signature="e#15545#15551#0" expanded="true" />
-            <element signature="e#20590#20591#0" expanded="true" />
-            <element signature="e#20635#20636#0" expanded="true" />
+            <element signature="e#15551#15557#0" expanded="true" />
+            <element signature="e#20596#20597#0" expanded="true" />
+            <element signature="e#20641#20642#0" expanded="true" />
           </folding>
         </state>
       </provider>

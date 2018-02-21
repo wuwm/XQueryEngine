@@ -427,9 +427,9 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 //                this.curNodes = this.visit(ctx.whereClause());
             }
             LinkedList<Node> aaa = this.visit(ctx.returnClause());
-            if(aaa == null || aaa.size() == 0){
-                System.out.println("fdsafs");
-            }
+//            if(aaa == null || aaa.size() == 0){
+//                System.out.println("fdsafs");
+//            }
             res.addAll(aaa);
         }else{
             LinkedList<Node> res_temp = new LinkedList<Node>(this.visit(ctx.forClause().xq(startIdx)));
@@ -611,8 +611,11 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 //        LinkedList<Boolean> res = this.visit(ctx.cond());
         LinkedList<Boolean> res = new LinkedList<>();
         Cond_SomeBackTrack(0, ctx, res);
+        LinkedList<Boolean> res2 = new LinkedList<>();
+        if(res.contains(Boolean.TRUE))
+            res2.add(Boolean.TRUE);
         this.context = this.contextStack.pop();
-        return res;
+        return res2;
     }
 
     @Override
