@@ -71,7 +71,7 @@ public class XPathTool {
         }
         return new LinkedList<>(res);
     }
-
+ 
 //    public LinkedList<Node> findAllChildren(List<Node> startNodeList){
 //        LinkedHashSet<Node> res = new LinkedHashSet<>();
 //        Queue<Node> queue = new LinkedList<>();
