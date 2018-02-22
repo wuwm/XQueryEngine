@@ -63,7 +63,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 //        this.curNodes = res;
 //        return res;
         LinkedList<Node> res = new LinkedList<>();
-        // TODO: 1/27/18 这里进行了类型转换，返回的不再是一个Node的List，而是一个String的List
         LinkedList<Node> nextChildren = new LinkedList<>();
         XPathTool xpathTool = XPathTool.getInstance();
         for (Node n : this.curNodes){
@@ -165,7 +164,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     @Override
     public LinkedList visitValue_rp(XQueryParser.Value_rpContext ctx) {
         LinkedList<Node> res = new LinkedList<>();
-        // TODO: 1/27/18 这里进行了类型转换，返回的不再是一个Node的List，而是一个String的List
         LinkedList<Node> nextChildren = new LinkedList<>();
         XPathTool xpathTool = XPathTool.getInstance();
         nextChildren = xpathTool.findNextChildrenWithTextElement(curNodes);
@@ -187,7 +185,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         LinkedList<Node> res = new LinkedList<>();
         LinkedList<Node> left_res = this.visit(ctx.rp(0));
         this.curNodes = curNode_bak;
-        // TODO: 1/27/18 这里是否需要恢复curNodes？
         LinkedList<Node> right_res = this.visit(ctx.rp(1));
         res.addAll(left_res);
         res.addAll(right_res);
@@ -440,7 +437,9 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
             if(ctx.letClause() != null)
                 this.visit(ctx.letClause());
             if(ctx.whereClause() != null){
-                if(!((LinkedList<Boolean>)this.visit(ctx.whereClause())).get(0)){
+                LinkedList<Boolean> temp = this.visit(ctx.whereClause());
+
+                if(!(temp.get(0))){
                     return;
                 }
 //                this.curNodes = this.visit(ctx.whereClause());
@@ -607,7 +606,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
                 res1.add(Boolean.FALSE);
             }
         }else{
-            LinkedList<Node> res = this.visit(ctx.xq(startIdx));
+            LinkedList<Node> res = new LinkedList<>(this.visit(ctx.xq(startIdx)));
             String key = ctx.var(startIdx).getText();
             for(Node e : res){
                 this.contextStack.push(new LinkedHashMap<>(this.context));
@@ -631,8 +630,11 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         LinkedList<Boolean> res = new LinkedList<>();
         Cond_SomeBackTrack(0, ctx, res);
         LinkedList<Boolean> res2 = new LinkedList<>();
-        if(res.contains(Boolean.TRUE))
+        if(res.contains(Boolean.TRUE)){
             res2.add(Boolean.TRUE);
+        }else{
+            res2.add(Boolean.FALSE);
+        }
         this.context = this.contextStack.pop();
         return res2;
     }
