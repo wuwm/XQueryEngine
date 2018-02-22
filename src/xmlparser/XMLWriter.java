@@ -17,16 +17,34 @@ import java.util.LinkedList;
 public class XMLWriter {
     private Document document;
 
-    public void output(LinkedList res) {
+    public Document getDocument() {
+        return document;
+    }
+
+    private static XMLWriter instance = null;
+
+    protected XMLWriter() {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = null;
-
         try {
             builder = factory.newDocumentBuilder();
         }catch (Exception e){
             e.printStackTrace();
         }
         this.document = builder.newDocument();
+    }
+
+    public static XMLWriter getInstance() {
+        if(instance == null) {
+            instance = new XMLWriter();
+        }
+        return instance;
+    }
+
+    public void output(LinkedList res) {
+
+
+
         Element root = this.document.createElement("Results");
         this.document.appendChild(root);
 

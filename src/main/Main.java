@@ -31,7 +31,7 @@ public class Main {
         XQueryVisitor_232 visitor = new XQueryVisitor_232();
 
         LinkedList res = visitor.visit(parser.xq());
-        XMLWriter writer = new XMLWriter();
+        XMLWriter writer = XMLWriter.getInstance();
         writer.output(res);
     }
 }

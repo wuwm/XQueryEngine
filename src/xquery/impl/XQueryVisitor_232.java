@@ -4,6 +4,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import xmlparser.XMLParser;
+import xmlparser.XMLWriter;
 import xquery.autogenerate.XQueryParser;
 import xpath.impl.XPathTool;
 import xquery.autogenerate.XQueryBaseVisitor;
@@ -17,6 +18,14 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     private LinkedList<Node> curNodes = new LinkedList<>();
     private Stack<HashMap<String, LinkedList<Node>>> contextStack = new Stack<>();
     private Document docc = null;
+    private Document docc_out = XMLWriter.getInstance().getDocument();
+
+    public XQueryVisitor_232() {
+        if(this.docc == null){
+            XMLParser xml = new XMLParser("j_caesar.xml");
+            this.docc = xml.getDoc();
+        }
+    }
 
     @Override
     public LinkedList visitSingle_ap(XQueryParser.Single_apContext ctx) {
@@ -313,7 +322,8 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
     @Override
     public LinkedList visitXq_StringConstant(XQueryParser.Xq_StringConstantContext ctx) {
-        Node e = docc.createTextNode(ctx.getText().replace("\"", ""));
+        String s = ctx.getText().replace("\"", "");
+        Node e = docc.createTextNode(s);
         LinkedList<Node> res = new LinkedList<>();
         res.add(e);
         return res;
@@ -324,11 +334,11 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         LinkedList<Node> curNodes_bak = new LinkedList<>(this.curNodes);
         this.backupContext();
         String tagName = ctx.tagName(0).getText();
-        Node e = docc.createElement(tagName);
+        Node e = docc_out.createElement(tagName);
         LinkedList<Node> res = new LinkedList<>();
         LinkedList<Node> children = this.visit(ctx.xq());
         for(Node ee : children){
-            e.appendChild(ee);
+            e.appendChild(docc_out.importNode(ee, true));
         }
         res.add(e);
         this.recoverContex();
