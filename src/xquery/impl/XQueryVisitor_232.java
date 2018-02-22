@@ -35,8 +35,10 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         this.curNodes.add(xml.getDoc());
         this.docc = xml.getDoc();
         res = this.visit(ctx.rp());
-        this.curNodes = new LinkedList<>(res);
-        return res;
+        LinkedHashSet<Node> res_nodup = new LinkedHashSet();
+        res_nodup.addAll(res);
+        this.curNodes = new LinkedList<>(res_nodup);
+        return new LinkedList<>(res_nodup);
     }
 
     @Override
@@ -46,9 +48,11 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         this.docc = xml.getDoc();
         curNodes.add(xml.getDoc());
         curNodes.addAll(xpathTool.findAllChildren(curNodes));
+        LinkedHashSet<Node> res_nodup = new LinkedHashSet<>();
         LinkedList<Node> res = new LinkedList<>(this.visit(ctx.rp()));
-        this.curNodes = res;
-        return res;
+        res_nodup.addAll(res);
+        this.curNodes = new LinkedList<>(res_nodup);
+        return new LinkedList<>(res_nodup);
     }
 
     @Override
@@ -89,12 +93,12 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     @Override
     public LinkedList visitDouble_prs(XQueryParser.Double_prsContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
-        // TODO: 1/27/18 这里是=还是addall，有点不确定
-        this.visit(ctx.rp(0));
-        this.curNodes.addAll(xpathTool.findAllChildren(curNodes));
-        this.curNodes = new LinkedList<Node>(this.visit(ctx.rp(1)));
-        return this.curNodes;
-        // TODO: 1/27/18 按照要求这里需要进行unique(）操作，实际上我没做
+        this.curNodes = this.visit(ctx.rp(0));
+        LinkedHashSet<Node> res = new LinkedHashSet<>();
+        this.curNodes = (xpathTool.findAllChildren(curNodes));
+        res = new LinkedHashSet<Node>(this.visit(ctx.rp(1)));
+        this.curNodes = new LinkedList<>(res);
+        return new LinkedList<>(res);
     }
 
     @Override
@@ -377,20 +381,24 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     @Override
     public LinkedList visitXq_xqSxq(XQueryParser.Xq_xqSxqContext ctx) {
         LinkedList<Node> res = new LinkedList<>();
+        LinkedHashSet<Node> res_nodup = new LinkedHashSet<>();
         this.curNodes = new LinkedList<Node>(this.visit(ctx.xq()));
         res = this.visit(ctx.rp());
-        this.curNodes = new LinkedList<Node>(res);
-        return res;
+        res_nodup.addAll(res);
+        this.curNodes = new LinkedList<Node>(res_nodup);
+        return new LinkedList<Node>(res_nodup);
     }
 
     @Override
     public LinkedList visitXq_xqSSxq(XQueryParser.Xq_xqSSxqContext ctx) {
         XPathTool xpathTool = XPathTool.getInstance();
+        LinkedHashSet<Node> res_nodup = new LinkedHashSet<>();
         this.curNodes = new LinkedList<>(this.visit(ctx.xq()));
         LinkedList<Node> aaa = xpathTool.findAllChildren(this.curNodes);
-        this.curNodes.addAll(aaa);
-        this.curNodes = new LinkedList<Node>(this.visit(ctx.rp()));
-        return this.curNodes;
+        this.curNodes = aaa;
+        res_nodup.addAll(this.visit(ctx.rp()));
+        this.curNodes = new LinkedList<Node>(res_nodup);
+        return new LinkedList<Node>(res_nodup);
     }
 
     @Override
