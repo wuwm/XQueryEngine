@@ -5,7 +5,7 @@ grammar XPath;
 ap:  'doc("' filename '")'  '/'  rp      #single_ap
   |  'doc("' filename '")'  '//' rp      #double_ap
   ;
-
+ 
 
 rp : tagName                   #tagname_rp
    | '*'                       #child_rp

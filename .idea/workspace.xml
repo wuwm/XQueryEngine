@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fc55b16-95a8-4969-9af0-772c67aeb5f0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/input.txt" afterPath="$PROJECT_DIR$/input.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/XQueryEngine/xpath/autogenerate/XPath.g4" afterPath="$PROJECT_DIR$/out/production/XQueryEngine/xpath/autogenerate/XPath.g4" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" afterPath="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
@@ -24,9 +23,9 @@
     <favorites_list name="XQueryEngine" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="vertical" split-proportion="0.69093233">
+    <splitter split-orientation="vertical" split-proportion="0.7988981">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.496">
+        <splitter split-orientation="horizontal" split-proportion="0.3826651">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file leaf-file-name="XPathVisitor_232.java" pinned="false" current-in-tab="false">
@@ -44,8 +43,18 @@
               <file leaf-file-name="XPath.g4" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="60">
-                      <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="51" />
+                    <state relative-caret-position="285">
+                      <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="41" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="XPath.g4" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="450">
+                      <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
                       <folding />
                     </state>
                   </provider>
@@ -54,8 +63,8 @@
               <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/main/Main.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="315">
-                      <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+                    <state relative-caret-position="90">
+                      <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
                       <folding />
                     </state>
                   </provider>
@@ -64,8 +73,8 @@
               <file leaf-file-name="XQueryVisitor_232.java" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="360">
-                      <caret line="400" column="46" lean-forward="false" selection-start-line="400" selection-start-column="46" selection-end-line="400" selection-end-column="46" />
+                    <state relative-caret-position="-228">
+                      <caret line="433" column="23" lean-forward="false" selection-start-line="433" selection-start-column="20" selection-end-line="433" selection-end-column="23" />
                       <folding>
                         <element signature="imports" expanded="true" />
                       </folding>
@@ -76,7 +85,7 @@
               <file leaf-file-name="XPathTool.java" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="90">
+                    <state relative-caret-position="-1436">
                       <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="24" selection-end-column="5" />
                       <folding />
                     </state>
@@ -129,38 +138,40 @@
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="AbstractParseTreeVisitor.class" pinned="false" current-in-tab="false">
-                <entry file="jar://$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/tree/AbstractParseTreeVisitor.class">
-                  <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="135">
-                      <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-                      <folding>
-                        <element signature="e#347#348#0" expanded="true" />
-                      </folding>
-                    </state>
-                  </provider>
-                </entry>
-              </file>
             </leaf>
           </split-first>
           <split-second>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-              <file leaf-file-name="XQuery.g4" pinned="false" current-in-tab="false">
+              <file leaf-file-name="XQuery.g4" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="285">
-                      <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+                    <state relative-caret-position="180">
+                      <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="75" />
                       <folding />
                     </state>
                   </provider>
                 </entry>
               </file>
-              <file leaf-file-name="out.xml" pinned="false" current-in-tab="true">
+              <file leaf-file-name="XQueryTool.java" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryTool.java">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="30">
+                      <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+                      <folding />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="out.xml" pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/out.xml">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="150">
-                      <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                      <folding />
+                    <state relative-caret-position="173">
+                      <caret line="10526" column="12" lean-forward="true" selection-start-line="10526" selection-start-column="12" selection-end-line="10526" selection-end-column="12" />
+                      <folding>
+                        <element signature="e#76442#76447#0" expanded="true" />
+                        <element signature="e#76771#76776#0" expanded="true" />
+                        <element signature="e#343962#343967#0" expanded="true" />
+                      </folding>
                     </state>
                   </provider>
                 </entry>
@@ -174,8 +185,8 @@
           <file leaf-file-name="input.txt" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/input.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="60">
-                  <caret line="4" column="57" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="57" />
+                <state relative-caret-position="0">
+                  <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -185,7 +196,7 @@
             <entry file="file://$PROJECT_DIR$/input.xml">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="46">
-                  <caret line="5" column="49" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+                  <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
@@ -194,7 +205,7 @@
           <file leaf-file-name="j_caesar.xml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/j_caesar.xml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="47">
+                <state relative-caret-position="41051">
                   <caret line="2739" column="38" lean-forward="false" selection-start-line="2739" selection-start-column="6" selection-end-line="2739" selection-end-column="38" />
                   <folding />
                 </state>
@@ -215,7 +226,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>play&gt;</find>
       <find>=</find>
       <find>child</find>
       <find>curNodes</find>
@@ -242,9 +252,10 @@
       <find>this.docc</find>
       <find>this.docc =</find>
       <find>IDxq</find>
+      <find>linkedhash</find>
       <find>Et tu, Brute! Then fall, Caesar.</find>
       <find>double</find>
-      <find>linkedhash</find>
+      <find>for</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -286,8 +297,8 @@
         <option value="$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4" />
         <option value="$PROJECT_DIR$/src/xmlparser/XMLWriter.java" />
         <option value="$PROJECT_DIR$/src/main/Main.java" />
-        <option value="$PROJECT_DIR$/input.txt" />
         <option value="$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java" />
+        <option value="$PROJECT_DIR$/input.txt" />
       </list>
     </option>
   </component>
@@ -297,10 +308,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="960" />
     <option name="y" value="23" />
-    <option name="width" value="1724" />
-    <option name="height" value="993" />
+    <option name="width" value="960" />
+    <option name="height" value="979" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -341,6 +353,12 @@
               <item name="XQueryEngine" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="XQueryEngine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="XQueryEngine" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="XQueryEngine" type="b2602c69:ProjectViewProjectNode" />
@@ -643,7 +661,7 @@
       <workItem from="1519015834444" duration="43410000" />
       <workItem from="1519273413514" duration="409000" />
       <workItem from="1519279484224" duration="29000" />
-      <workItem from="1519284161906" duration="5157000" />
+      <workItem from="1519284161906" duration="8978000" />
     </task>
     <servers />
   </component>
@@ -680,7 +698,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118789000" />
+    <option name="totallyTimeSpent" value="122610000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -692,7 +710,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1724" height="993" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="993" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -704,15 +722,15 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18171428" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.122285716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10820452" sideWeight="0.68994415" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09691161" sideWeight="0.6901042" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36321303" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10820452" sideWeight="0.31005585" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.09691161" sideWeight="0.30989584" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -912,12 +930,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java</url>
-          <line>343</line>
+          <line>441</line>
           <properties />
-          <option name="timeStamp" value="93" />
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="94" />
+      <option name="time" value="96" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1026,13 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/antlr-4.7.1-complete.jar!/org/antlr/v4/runtime/ParserRuleContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3150">
@@ -1051,13 +1068,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1098,30 +1108,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="51" lean-forward="false" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/xmlparser/XMLWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
@@ -1133,42 +1119,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+        <state relative-caret-position="30">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out.xml">
+    <entry file="file://$PROJECT_DIR$/src/xpath/impl/XPathTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="-1436">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="24" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/j_caesar.xml">
+    <entry file="file://$PROJECT_DIR$/src/xpath/autogenerate/XPath.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="2739" column="38" lean-forward="false" selection-start-line="2739" selection-start-column="6" selection-end-line="2739" selection-end-column="38" />
+        <state relative-caret-position="285">
+          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/input.xml">
+    <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XPath.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="5" column="49" lean-forward="true" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/input.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="57" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="57" />
+        <state relative-caret-position="450">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
           <folding />
         </state>
       </provider>
@@ -1183,13 +1161,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/input.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/j_caesar.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41051">
+          <caret line="2739" column="38" lean-forward="false" selection-start-line="2739" selection-start-column="6" selection-end-line="2739" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="10526" column="12" lean-forward="true" selection-start-line="10526" selection-start-column="12" selection-end-line="10526" selection-end-column="12" />
+          <folding>
+            <element signature="e#76442#76447#0" expanded="true" />
+            <element signature="e#76771#76776#0" expanded="true" />
+            <element signature="e#343962#343967#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/xquery/autogenerate/XQuery.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/xquery/impl/XQueryVisitor_232.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="400" column="46" lean-forward="false" selection-start-line="400" selection-start-column="46" selection-end-line="400" selection-end-column="46" />
+        <state relative-caret-position="-228">
+          <caret line="433" column="23" lean-forward="false" selection-start-line="433" selection-start-column="20" selection-end-line="433" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
