@@ -176,10 +176,10 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         this.curNodes = curNode_bak;
         // TODO: 1/27/18 这里是否需要恢复curNodes？
         LinkedList<Node> right_res = this.visit(ctx.rp(1));
-        res_NODUP.addAll(left_res);
-        res_NODUP.addAll(right_res);
+        res.addAll(left_res);
+        res.addAll(right_res);
         //Remove duplicates
-        res = new LinkedList<>(res_NODUP);
+        res = new LinkedList<>(res);
         this.curNodes = res;
         return res;
     }
@@ -357,10 +357,11 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         this.recoverContex();
         this.curNodes = curNodes_bak;
         LinkedHashSet<Node> res_NODUP = new LinkedHashSet<>();
-        res_NODUP.addAll(left_res);
-        res_NODUP.addAll(right_res);
-        this.curNodes = new LinkedList<Node>(res_NODUP);
-        return new LinkedList<Node>(res_NODUP);
+        LinkedList<Node> res = new LinkedList<>();
+        res.addAll(left_res);
+        res.addAll(right_res);
+        this.curNodes = res;
+        return res;
     }
 
     @Override
