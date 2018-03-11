@@ -56,7 +56,7 @@ public class XMLWriter {
             }
         } else if (res != null && res.size() != 0 && res.get(0) instanceof Node) {
             LinkedList<Node> list = (LinkedList<Node>) res;
-            if(list.get(0).getNodeType() == Node.TEXT_NODE){
+            if(false){
                 for (Node n : list) {
                     System.out.println(n.getNodeValue());
                 }
