@@ -13,7 +13,16 @@ xq
 	| '<' tagName '>' '{' xq '}' '<' '/' tagName '>'			# xq_IDxqID
 	| forClause letClause? whereClause? returnClause    		# xq_ForLetWhereReturn
 	| letClause xq 												# xq_LETxq
+	| joinClause                                                # xq_Join
 	;
+
+joinClause
+    : 'join' '(' xq ',' xq ',' idList ',' idList ')'
+    ;
+
+idList
+    : '[' ID (',' ID)* ']'
+    ;
 
 var
 	: '$' ID
@@ -32,7 +41,9 @@ whereClause
 	;
 
 returnClause
-	: 'return' xq
+	: 'return' xq                                                #return_xq
+	| returnClause ',' returnClause                              #return_Comma
+    | '<' tagName '>' returnClause '<' '/' tagName '>'           #return_tag
 	;
 
 cond

@@ -10,9 +10,126 @@ import xpath.impl.XPathTool;
 import xquery.autogenerate.XQueryBaseVisitor;
 import xquery.autogenerate.XQueryParser;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
+    private Stack<LinkedList<Node>> curNodes_bak;
+    private XPathTool tool = XPathTool.getInstance();
+    private void backupCurNodes(){
+        this.curNodes_bak.push(new LinkedList<>(this.curNodes));
+    }
+
+    private void restoreCurNodes(){
+        this.curNodes = new LinkedList<Node>(this.curNodes_bak.pop());
+    }
+
+    @Override
+    public LinkedList visitXq_Join(XQueryParser.Xq_JoinContext ctx) {
+        return this.visitChildren(ctx);
+    }
+
+    @Override
+    public LinkedList visitJoinClause(XQueryParser.JoinClauseContext ctx) {
+        this.backupCurNodes();
+        LinkedList<Node> a_TupleList = this.visit(ctx.xq(0));
+        this.restoreCurNodes();
+        this.backupCurNodes();
+        LinkedList<Node> b_TupleList = this.visit(ctx.xq(1));
+        this.restoreCurNodes();
+
+        ArrayList<String> a_Attributes = new ArrayList<>();
+        ArrayList<String> b_Attributes = new ArrayList<>();
+
+        for(int i = 0; i < ctx.idList(0).ID().size(); i++){
+            a_Attributes.add(ctx.idList(0).ID(i).getText());
+            b_Attributes.add(ctx.idList(1).ID(i).getText());
+        }
+
+        HashMap<String, LinkedList<Node>> hashMap_Left= this.hashMapFromTupleListandAttributes(a_TupleList, a_Attributes);
+        return getJoinResult(hashMap_Left, b_TupleList, b_Attributes);
+
+    }
+
+    private HashMap<String, LinkedList<Node>> hashMapFromTupleListandAttributes(LinkedList<Node> tupleList, ArrayList<String> attributes){
+        HashMap<String, LinkedList<Node>> res = new HashMap<>();
+        for (Node tuple: tupleList){
+            LinkedList<Node> nodesInTuple = this.tool.findNextChildren(tuple);
+
+            String key = this.hashKeyofTuple(nodesInTuple, attributes);
+
+            if (res.containsKey(key))
+                res.get(key).add(tuple);
+            else{
+                LinkedList<Node> value = new LinkedList<>();
+                value.add(tuple);
+                res.put(key, value);
+            }
+        }
+        return res;
+    }
+
+    private String hashKeyofTuple(LinkedList<Node> nodesInTuple, ArrayList<String> indexNames){
+        StringBuilder sb = new StringBuilder();
+        for(String attri : indexNames){
+            for(Node nodeInTuple: nodesInTuple){
+                if(nodeInTuple.getNodeName().equals(attri)){
+                    sb.append(nodeInTuple.getTextContent());
+                    // TODO: 3/10/18 写入顺序对最后key的影响是否重要？
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    private LinkedList<Node> getJoinResult(HashMap<String, LinkedList<Node>> a_hashmap, LinkedList<Node> b_tuples, ArrayList<String> b_attributes){
+        LinkedList<Node> res = new LinkedList<>();
+        for (Node b_tuple: b_tuples){
+            LinkedList<Node> b_nodesInTuple = this.tool.findNextChildren(b_tuple);
+
+            String key = hashKeyofTuple(b_nodesInTuple, b_attributes);
+
+            if (a_hashmap.containsKey(key)) {  //b的元素hit了a缓存的index
+                LinkedList<Node> a_tuples = a_hashmap.get(key);
+                res.addAll(tupleJoinedFromA_TuplesandB_Tuple(a_tuples, b_tuple));
+            }
+        }
+        return res;
+    }
+
+    private LinkedList<Node> tupleJoinedFromA_TuplesandB_Tuple(LinkedList<Node> a_tuples, Node b_tuple){
+        LinkedList<Node> res = new LinkedList<>();
+        for (Node a_tuple: a_tuples){
+            LinkedList<Node> newTuple = this.tool.findNextChildren(a_tuple);
+            newTuple.addAll(this.tool.findNextChildren(b_tuple));
+            Node e = this.docc_out.createElement("tuple");
+            for(Node ee : newTuple){
+                e.appendChild(docc_out.importNode(ee, true));
+            }
+            res.add(e);
+        }
+        return res;
+    }
+
+    @Override
+    public LinkedList visitIdList(XQueryParser.IdListContext ctx) {
+        return super.visitIdList(ctx);
+    }
+
+    @Override
+    public LinkedList visitReturn_tag(XQueryParser.Return_tagContext ctx) {
+        return super.visitReturn_tag(ctx);
+    }
+
+    @Override
+    public LinkedList visitReturn_xq(XQueryParser.Return_xqContext ctx) {
+        return super.visitReturn_xq(ctx);
+    }
+
+    @Override
+    public LinkedList visitReturn_Comma(XQueryParser.Return_CommaContext ctx) {
+        return super.visitReturn_Comma(ctx);
+    }
 
     private HashMap<String, LinkedList<Node>> context = new HashMap<>();
     private LinkedList<Node> curNodes = new LinkedList<>();
@@ -74,7 +191,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
                     res.add(new_n);
                 }
             }else{
-                // TODO: 1/28/18 这里需要报错
+
             }
         }
         return res;
@@ -169,10 +286,10 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         nextChildren = xpathTool.findNextChildrenWithTextElement(curNodes);
         for (Node n : nextChildren){
             if(n.getNodeType() == Node.TEXT_NODE){
-                // TODO: 1/27/18 有没有其它不需要输出的情况？
+
                 res.add(n);
             }else{
-                // TODO: 1/28/18 这里需要报错
+
             }
         }
         return res;
@@ -222,7 +339,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     public LinkedList visitAnd_fs(XQueryParser.And_fsContext ctx) {
         LinkedList<Node> curNode_bak = new LinkedList<>(this.curNodes);
         Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.f(0))).get(0);
-        // TODO: 1/27/18 这里要加assert
         this.curNodes = curNode_bak;
         Boolean right_res = ((LinkedList<Boolean>)this.visit(ctx.f(1))).get(0);
         LinkedList<Boolean> res = new LinkedList<>();
@@ -233,7 +349,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     @Override
     public LinkedList visitNot_f(XQueryParser.Not_fContext ctx) {
         Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.f())).get(0);
-        // TODO: 1/27/18 这里要加assert
         LinkedList<Boolean> res = new LinkedList<>();
         res.add( !left_res );
         return res;
@@ -243,7 +358,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     public LinkedList visitOr_fs(XQueryParser.Or_fsContext ctx) {
         LinkedList<Node> curNode_bak = new LinkedList<>(this.curNodes);
         Boolean left_res = ((LinkedList<Boolean>)this.visit(ctx.f(0))).get(0);
-        // TODO: 1/27/18 这里要加assert
         this.curNodes = curNode_bak;
         Boolean right_res = ((LinkedList<Boolean>)this.visit(ctx.f(1))).get(0);
         LinkedList<Boolean> res = new LinkedList<>();
@@ -289,7 +403,6 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         for(Node n1 : left_res){
             for(Node n2 : right_res){
                 if(n1.isSameNode(n2)){
-                    // TODO: 1/28/18 这里直接用==的方法不知道对不对
                     flag = true;
                     break;
                 }
@@ -299,7 +412,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         return res;
     }
 
-    // TODO: 1/27/18 下面的应该不用写，因为上面直接用getText()取得需要的String 
+
     @Override
     public LinkedList visitTagName(XQueryParser.TagNameContext ctx) {
         return super.visitTagName(ctx);
@@ -316,7 +429,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     }
 
 
-    //-----------------------------从下面开始写-------------------------------------------------------
+
 
 
 
