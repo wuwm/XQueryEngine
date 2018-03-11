@@ -42,8 +42,8 @@ whereClause
 
 returnClause
 	: 'return' xq                                                #return_xq
-	| returnClause ',' returnClause                              #return_Comma
-    | '<' tagName '>' returnClause '<' '/' tagName '>'           #return_tag
+	| 'return' returnClause ',' returnClause                              #return_Comma
+    | 'return' '<' tagName '>' returnClause '<' '/' tagName '>'           #return_tag
 	;
 
 cond
