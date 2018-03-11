@@ -14,10 +14,10 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
-    private Stack<LinkedList<Node>> curNodes_bak;
+    private Stack<LinkedList<Node>> curNodes_bak = new Stack<>();
     private XPathTool tool = XPathTool.getInstance();
     private void backupCurNodes(){
-        this.curNodes_bak.push(new LinkedList<>(this.curNodes));
+        this.curNodes_bak.push(new LinkedList<Node>(this.curNodes));
     }
 
     private void restoreCurNodes(){
@@ -47,7 +47,8 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         }
 
         HashMap<String, LinkedList<Node>> hashMap_Left= this.hashMapFromTupleListandAttributes(a_TupleList, a_Attributes);
-        return getJoinResult(hashMap_Left, b_TupleList, b_Attributes);
+//        this.curNodes = getJoinResult(hashMap_Left, b_TupleList, b_Attributes);
+        return new LinkedList<Node>(getJoinResult(hashMap_Left, b_TupleList, b_Attributes));
 
     }
 
@@ -89,7 +90,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
             String key = hashKeyofTuple(b_nodesInTuple, b_attributes);
 
-            if (a_hashmap.containsKey(key)) {  //b的元素hit了a缓存的index
+            if (a_hashmap.containsKey(key)) {  //b的元素的keyhit了a缓存的index
                 LinkedList<Node> a_tuples = a_hashmap.get(key);
                 res.addAll(tupleJoinedFromA_TuplesandB_Tuple(a_tuples, b_tuple));
             }
@@ -118,12 +119,30 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
 
     @Override
     public LinkedList visitReturn_tag(XQueryParser.Return_tagContext ctx) {
-        return super.visitReturn_tag(ctx);
+        String tagName = ctx.tagName(0).getText();
+        LinkedList<Node> nodeList = visit(ctx.returnClause());
+        Node node = makeNode(tagName, nodeList);
+        LinkedList<Node> result = new  LinkedList<>();
+        result.add(node);
+        return result;
+    }
+
+    private Node makeNode(String tag, LinkedList<Node> list){
+        Node result = this.docc_out.createElement(tag);
+        for (Node node : list) {
+            if (node != null) {
+                Node newNode = this.docc_out.importNode(node, true);
+                result.appendChild(newNode);
+            }
+        }
+        return result;
     }
 
     @Override
     public LinkedList visitReturn_xq(XQueryParser.Return_xqContext ctx) {
-        return super.visitReturn_xq(ctx);
+        LinkedList<Node> res = new LinkedList<Node>(this.visit(ctx.xq()));
+//        this.curNodes = res;
+        return res;
     }
 
     @Override
@@ -584,6 +603,7 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
         LinkedList<Node> res = new LinkedList<>();
         Xq_ForLetWhereReturnHelper(ctx, 0, res);
         this.context = this.contextStack.pop();
+        this.curNodes = new LinkedList<>(res);
         return res;
     }
 
@@ -632,12 +652,12 @@ public class XQueryVisitor_232 extends XQueryBaseVisitor<LinkedList> {
     }
 
 
-    @Override
-    public LinkedList visitReturnClause(XQueryParser.ReturnClauseContext ctx) {
-        LinkedList<Node> res = new LinkedList<>(this.visit(ctx.xq()));
-        this.curNodes = res;
-        return res;
-    }
+//    @Override
+//    public LinkedList visitReturnClause(XQueryParser.ReturnClauseContext ctx) {
+//        LinkedList<Node> res = new LinkedList<>(this.visit(ctx.xq()));
+//        this.curNodes = res;
+//        return res;
+//    }
 
     @Override
     public LinkedList visitCond_EMPTYxq(XQueryParser.Cond_EMPTYxqContext ctx) {

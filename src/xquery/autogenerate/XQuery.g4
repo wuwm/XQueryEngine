@@ -11,7 +11,7 @@ xq
 	| xq '/' rp													# xq_xqSxq
 	| xq '//' rp 												# xq_xqSSxq
 	| '<' tagName '>' '{' xq '}' '<' '/' tagName '>'			# xq_IDxqID
-	| forClause letClause? whereClause? returnClause    		# xq_ForLetWhereReturn
+	| forClause letClause? whereClause? 'return' returnClause    		# xq_ForLetWhereReturn
 	| letClause xq 												# xq_LETxq
 	| joinClause                                                # xq_Join
 	;
@@ -41,9 +41,9 @@ whereClause
 	;
 
 returnClause
-	: 'return' xq                                                #return_xq
-	| 'return' returnClause ',' returnClause                              #return_Comma
-    | 'return' '<' tagName '>' returnClause '<' '/' tagName '>'           #return_tag
+	: xq                                                #return_xq
+	| returnClause ',' returnClause                     #return_Comma
+    | '<' tagName '>' returnClause '<' '/' tagName '>'  #return_tag
 	;
 
 cond
