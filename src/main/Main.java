@@ -11,6 +11,7 @@ import xpath.impl.XPathVisitor_232;
 import xquery.autogenerate.XQueryLexer;
 import xquery.autogenerate.XQueryParser;
 import xquery.impl.XQueryVisitor_232;
+import xquery.autogenerate.Rewriter;
 
 import java.util.LinkedList;
 
@@ -26,6 +27,29 @@ public class Main {
 
         XQueryLexer lexer = new XQueryLexer(input);
         XQueryParser parser = new XQueryParser(new CommonTokenStream(lexer));
+
+
+        // rewrite funtion
+
+        // get the context
+        XQueryParser.Xq_ForLetWhereReturnContext ctx = ((XQueryParser.Xq_ForLetWhereReturnContext)parser.xq());
+        XQueryParser.ForClauseContext for_clause = ctx.forClause();
+        XQueryParser.WhereClauseContext where_clause = ctx.whereClause();
+        XQueryParser.ReturnClauseContext return_clause = ctx.returnClause();
+
+        // get rewriter instance
+        Rewriter rewriter = new Rewriter(input);
+
+        // do necessary constructions
+        rewriter.for_construction(for_clause);
+        rewriter.where_construction(where_clause);
+        rewriter.return_construction(return_clause);
+
+        String output = rewriter.makeOutput();
+        System.out.println(output);
+
+
+
         parser.removeErrorListeners();
         parser.addErrorListener(new ErrorListener());
         XQueryVisitor_232 visitor = new XQueryVisitor_232();
@@ -33,5 +57,8 @@ public class Main {
         LinkedList res = visitor.visit(parser.xq());
         XMLWriter writer = XMLWriter.getInstance();
         writer.output(res);
+
+
+
     }
 }
